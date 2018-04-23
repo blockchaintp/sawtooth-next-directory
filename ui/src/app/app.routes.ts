@@ -25,6 +25,7 @@ import {LoginModalComponent} from './modals/login-modal/login-modal.component';
 import {ForgotPasswordModalComponent} from './modals/forgot-password-modal/forgot-password-modal.component';
 import {CreateAccountModalComponent} from './modals/create-account-modal/create-account-modal.component';
 import {MembersComponent} from "./pages/members/members.component";
+import {UsersComponent} from "./pages/users/users.component";
 import {AllUsersSectionComponent} from "./pages/all-users-section/all-users-section.component";
 import {AllGroupsSectionComponent} from "./pages/all-groups-section/all-groups-section.component";
 import {MyGroupsSectionComponent} from "./pages/my-groups-section/my-groups-section.component";
@@ -32,6 +33,7 @@ import {TestingComponent} from "./pages/testing/testing.component";
 import {ContextResolve} from "./pages/home/context.resolve";
 import {HomeResolve} from "./pages/home/home.resolve";
 import {MembersResolve} from "./pages/members/members.resolve";
+import {UsersResolve} from "./pages/users/users.resolve";
 import {AllUsersResolve} from "./pages/all-users/all-users.resolve";
 import {AllGroupsResolve} from "./pages/all-groups/all-groups.resolve";
 import {MyGroupsResolve} from "./pages/my-groups/my-groups.resolve";
@@ -110,9 +112,9 @@ export const AppRoutes: Routes = [
                             },
                             {
                                 path: 'users/:id',
-                                component: AllUsersComponent,
+                                component: UsersComponent,
                                 resolve: {
-                                    usersResolve: AllUsersResolve
+                                    usersResolve: UsersResolve
                                 }
                             },
                         ],

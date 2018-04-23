@@ -44,8 +44,10 @@ export class AllUsersComponent implements OnInit {
             selectable: false,
             rowClickable: true,
             headers: [
-                new TableHeader('Name', 'name', 'string'),
-                new TableHeader('ID', 'id', 'any')
+                new TableHeader('Name', 'name', 'function', (element) => {
+                    return element.id === this.user.id ? element.name + ' (You)' : element.name;
+                }),
+                new TableHeader('ID', 'id', 'string')
             ]
 
         };
@@ -56,7 +58,7 @@ export class AllUsersComponent implements OnInit {
 
     }
 
-    memberLink(user) {
+    userLink(user) {
         this.router.navigate(['base/home/all-users-section/users', user.id]);
     }
 }

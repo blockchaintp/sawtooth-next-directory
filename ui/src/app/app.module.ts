@@ -50,6 +50,8 @@ import {RequestAccessModalComponent} from './modals/request-access-modal/request
 import {MembersComponent} from './pages/members/members.component';
 import {CreateGroupModalComponent} from './modals/create-group-modal/create-group-modal.component';
 
+import {UsersComponent} from './pages/users/users.component';
+
 import {DataTableComponent} from './primary-components/data-table/data-table.component';
 import {PendingApprovalActionsComponent} from './secondary-components/pending-approval-actions/pending-approval-actions.component';
 import {RequestsActionsComponent} from './secondary-components/requests-actions/requests-actions.component';
@@ -87,6 +89,7 @@ import {GroupService} from "./services/groups/group.service";
 import {UsersUtilsService} from "./services/users/users-utils.service";
 import {GroupsUtilsService} from "./services/groups/groups-utils.service";
 import {RequestsUtilsService} from "./services/requests/requests-utils.service";
+import {UsersResolve} from './pages/users/users.resolve';
 import {MembersResolve} from "./pages/members/members.resolve";
 import {PageLoaderService} from "./services/page-loader.service";
 
@@ -111,6 +114,7 @@ import {PageLoaderService} from "./services/page-loader.service";
         ForgotPasswordModalComponent,
         CreateAccountModalComponent,
         RequestAccessModalComponent,
+        UsersComponent,
         MembersComponent,
         CreateGroupModalComponent,
         DataTableComponent,
@@ -159,6 +163,7 @@ import {PageLoaderService} from "./services/page-loader.service";
         UsersUtilsService,
         ResponsiveNavigationService,
         PageLoaderService,
+        UsersResolve,
         MembersResolve,
         AllUsersResolve,
         AllGroupsResolve,
