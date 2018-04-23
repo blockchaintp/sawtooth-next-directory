@@ -12,18 +12,28 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 =========================================================================*/
-import {Injectable} from '@angular/core';
-import {Resolve, ActivatedRouteSnapshot} from '@angular/router';
-import {ContextService} from "../../services/context.service";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { CreateUserModalComponent } from './create-user-modal.component';
 
-@Injectable()
-export class AllUsersResolve implements Resolve<any> {
+describe('CreateUserModalComponent', () => {
+  let component: CreateUserModalComponent;
+  let fixture: ComponentFixture<CreateUserModalComponent>;
 
-    constructor(private context: ContextService) {
-    }
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ CreateUserModalComponent ]
+    })
+    .compileComponents();
+  }));
 
-    resolve(route: ActivatedRouteSnapshot) {
-        return this.context.getAllUsers();
-    }
-}
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CreateUserModalComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

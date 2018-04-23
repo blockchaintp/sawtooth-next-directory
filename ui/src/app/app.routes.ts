@@ -24,6 +24,7 @@ import {PendingApprovalComponent} from './pages/pending-approval/pending-approva
 import {LoginModalComponent} from './modals/login-modal/login-modal.component';
 import {ForgotPasswordModalComponent} from './modals/forgot-password-modal/forgot-password-modal.component';
 import {CreateAccountModalComponent} from './modals/create-account-modal/create-account-modal.component';
+import {CreateUserModalComponent} from './modals/create-user-modal/create-user-modal.component';
 import {MembersComponent} from "./pages/members/members.component";
 import {UsersComponent} from "./pages/users/users.component";
 import {AllUsersSectionComponent} from "./pages/all-users-section/all-users-section.component";

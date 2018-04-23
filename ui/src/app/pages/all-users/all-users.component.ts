@@ -12,10 +12,12 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 =========================================================================*/
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Route, Router} from "@angular/router";
-import {UtilsService} from "../../services/utils.service";
+import {Component, OnInit, OnDestroy, Inject, NgZone, ChangeDetectorRef} from '@angular/core';
+import {ActivatedRoute, Route, Router} from '@angular/router';
+import {DOCUMENT} from '@angular/platform-browser';
+import *  as _ from "lodash";
 import {UsersService} from "../../services/users/users.service";
+import {UtilsService} from "../../services/utils.service";
 import {TableHeader} from "../../models/table-header.model";
 import {ContextService} from "../../services/context.service";
 import {UsersUtilsService} from "../../services/users/users-utils.service";
@@ -26,9 +28,9 @@ import {UsersUtilsService} from "../../services/users/users-utils.service";
     styleUrls: ['./all-users.component.scss']
 })
 export class AllUsersComponent implements OnInit {
-    public users;
     public user;
-    public showModal = false;
+    public users;
+    public createUser = false;
     public tableConfig;
 
     constructor(private activatedRoute: ActivatedRoute,
@@ -61,4 +63,13 @@ export class AllUsersComponent implements OnInit {
     userLink(user) {
         this.router.navigate(['base/home/all-users-section/users', user.id]);
     }
+
+    createUserModal() {
+      this.createUser = true;
+    }
+
+    onCreate(user) {
+      this.users.push(user);
+    }
+
 }

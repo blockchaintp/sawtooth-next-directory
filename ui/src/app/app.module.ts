@@ -45,6 +45,7 @@ import {ContextualMenuComponent} from './secondary-components/contextual-menu/co
 import {LoginModalComponent} from './modals/login-modal/login-modal.component';
 import {ForgotPasswordModalComponent} from './modals/forgot-password-modal/forgot-password-modal.component';
 import {CreateAccountModalComponent} from './modals/create-account-modal/create-account-modal.component';
+import {CreateUserModalComponent} from './modals/create-user-modal/create-user-modal.component';
 
 import {RequestAccessModalComponent} from './modals/request-access-modal/request-access-modal.component';
 import {MembersComponent} from './pages/members/members.component';
@@ -116,6 +117,7 @@ import {PageLoaderService} from "./services/page-loader.service";
         RequestAccessModalComponent,
         UsersComponent,
         MembersComponent,
+        CreateUserModalComponent,
         CreateGroupModalComponent,
         DataTableComponent,
         PendingApprovalActionsComponent,

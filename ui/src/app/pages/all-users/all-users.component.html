@@ -12,13 +12,18 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 =========================================================================-->
-<app-panel-header [header]="'All Users'"></app-panel-header>
-<div class="hd-panel-content-inner">
-    <app-data-table
-            (onRowClick)="userLink($event)"
-            [data]="users"
-            [config]="tableConfig">
-    </app-data-table>
-</div>
-<app-request-access-modal [(show)]="showModal">
-</app-request-access-modal>
+<app-panel-header [header]="'All Users'">
+    <app-link (onClickInner)="createUserModal()"
+              class="link-bold">
+        <i class="icon-icon-add"></i>Create User
+    </app-link>
+</app-panel-header>
+<app-data-table
+        (onRowClick)="userLink($event)"
+        [data]="users"
+        [config]="tableConfig">
+</app-data-table>
+<app-create-user-modal
+        (onCreate)="onCreate($event)"
+        [(show)]="createUser">
+</app-create-user-modal>

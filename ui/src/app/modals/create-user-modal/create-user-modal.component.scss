@@ -12,18 +12,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 =========================================================================*/
-import {Injectable} from '@angular/core';
-import {Resolve, ActivatedRouteSnapshot} from '@angular/router';
-import {ContextService} from "../../services/context.service";
-
-
-@Injectable()
-export class AllUsersResolve implements Resolve<any> {
-
-    constructor(private context: ContextService) {
-    }
-
-    resolve(route: ActivatedRouteSnapshot) {
-        return this.context.getAllUsers();
-    }
-}
