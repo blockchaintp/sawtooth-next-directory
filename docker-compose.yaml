@@ -112,3 +112,15 @@ services:
           --bind network:tcp://*:8800 \
           --scheduler parallel
       "
+
+  chateau:
+    image: hronom/docker-chateau
+    depends_on:
+      - rethink
+    environment:
+      - RETHINKDB_HOST=rethink
+      - RETHINKDB_PORT=28015
+      - RETHINKDB_AUTH_KEY=
+    restart: always
+    ports:
+      - "3000:3000"

@@ -37,8 +37,13 @@ class UserNamespace(enum.IntEnum):
     USER_STOP = 149
 
 
+class MetadataNamespace(enum.IntEnum):
+    METADATA_START = 149
+    METADATA_STOP = 199
+
+
 class ProposalNamespace(enum.IntEnum):
-    PROPOSAL_START = 149
+    PROPOSAL_START = 199
     PROPOSAL_STOP = 255
 
 
@@ -97,6 +102,8 @@ class AddressSpace(enum.Enum):
     TASKS_OWNERS = 13
     TASKS_ADMINS = 14
 
+    METADATA = 15
+
 
 def _contains(num, start, stop):
     return start <= num < stop
@@ -130,6 +137,8 @@ def address_is(address):
         return _task_address_is(address)
     elif _contains(addr1, UserNamespace.USER_START, UserNamespace.USER_STOP):
         return AddressSpace.USER
+    elif _contains(addr1, MetadataNamespace.METADATA_START, MetadataNamespace.METADATA_STOP):
+        return AddressSpace.METADATA
     elif _contains(addr1, ProposalNamespace.PROPOSAL_START,
                    ProposalNamespace.PROPOSAL_STOP):
         return AddressSpace.PROPOSALS
@@ -337,3 +346,11 @@ def make_task_admins_address(task_id, user_id):
                TaskRelationshipNamespace.TASK_ADMIN_START,
                TaskRelationshipNamespace.TASK_ADMIN_STOP -
                TaskRelationshipNamespace.TASK_ADMIN_START)
+
+
+def make_metadata_address(metadata_key):
+    return NS + _compress(
+        metadata_key,
+        MetadataNamespace.METADATA_START,
+        MetadataNamespace.METADATA_STOP - MetadataNamespace.METADATA_START) + \
+           sha512(metadata_key.encode()).hexdigest()[:62]

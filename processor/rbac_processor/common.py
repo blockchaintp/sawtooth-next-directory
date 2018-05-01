@@ -17,6 +17,7 @@ from sawtooth_sdk.processor.exceptions import InvalidTransaction
 
 from rbac_addressing import addresser
 
+from rbac_processor.protobuf import metadata_state_pb2
 from rbac_processor.protobuf import user_state_pb2
 from rbac_processor.protobuf import proposal_state_pb2
 from rbac_processor.protobuf import role_state_pb2
@@ -44,6 +45,21 @@ def get_state_entry(state_entries, address):
         if entry.address == address:
             return entry
     raise KeyError("Address {} is not in the state entries".format(address))
+
+
+def return_metadata_container(entry):
+
+    metadata_container = metadata_state_pb2.MetadataContainer()
+    metadata_container.ParseFromString(entry.data)
+
+    return metadata_container
+
+
+def is_in_metadata_container(container, identifier):
+    for metadata in container.metadata:
+        if metadata.key == identifier:
+            return True
+    return False
 
 
 def return_user_container(entry):

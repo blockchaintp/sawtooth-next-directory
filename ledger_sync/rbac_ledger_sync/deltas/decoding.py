@@ -19,6 +19,7 @@ from google.protobuf.json_format import MessageToDict
 
 from rbac_addressing.addresser import address_is
 from rbac_addressing.addresser import AddressSpace
+from rbac_ledger_sync.protobuf.metadata_state_pb2 import MetadataContainer
 from rbac_ledger_sync.protobuf.proposal_state_pb2 import ProposalsContainer
 from rbac_ledger_sync.protobuf.role_state_pb2 import RoleAttributesContainer
 from rbac_ledger_sync.protobuf.role_state_pb2 import RoleRelationshipContainer
@@ -28,6 +29,9 @@ from rbac_ledger_sync.protobuf.user_state_pb2 import UserContainer
 
 
 DESERIALIZERS = {
+    AddressSpace.METADATA:
+    lambda d: _parse_proto(MetadataContainer, d).metadata,
+
     AddressSpace.USER:
     lambda d: _parse_proto(UserContainer, d).users,
 

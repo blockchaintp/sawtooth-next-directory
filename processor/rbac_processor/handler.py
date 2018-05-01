@@ -27,6 +27,7 @@ from rbac_processor.task import task_owners
 from rbac_processor.role.role_apply import apply_create_role
 from rbac_processor.task.task_create import apply_create_task
 from rbac_processor.user.user_create import apply_create_user
+from rbac_processor.metadata.metadata_create import apply_create_metadata
 from rbac_processor.user.user_manager_proposal import apply_user_confirm
 from rbac_processor.user.user_manager_proposal import apply_user_propose
 from rbac_processor.user.user_manager_proposal import apply_user_reject
@@ -90,7 +91,8 @@ USER_REJECT = [RBACPayload.REJECT_UPDATE_USER_MANAGER]
 
 CREATE = [RBACPayload.CREATE_USER,
           RBACPayload.CREATE_ROLE,
-          RBACPayload.CREATE_TASK]
+          RBACPayload.CREATE_TASK,
+          RBACPayload.CREATE_METADATA]
 
 
 class RBACTransactionHandler(object):
@@ -158,6 +160,9 @@ def apply_create(header, payload, state):
 
     elif payload.message_type == RBACPayload.CREATE_TASK:
         apply_create_task(header, payload, state)
+
+    elif payload.message_type == RBACPayload.CREATE_METADATA:
+        apply_create_metadata(header, payload, state)
 
     else:
         raise InvalidTransaction("Message type unknown.")

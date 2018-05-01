@@ -34,6 +34,7 @@ from db import db_utils
 from api.auth import AUTH_BP
 from api.blocks import BLOCKS_BP
 from api.errors import ERRORS_BP
+from api.metadata import METADATA_BP
 from api.proposals import PROPOSALS_BP
 from api.roles import ROLES_BP
 from api.tasks import TASKS_BP
@@ -182,6 +183,7 @@ def main():
     app.blueprint(TASKS_BP)
     app.blueprint(USERS_BP)
     app.blueprint(APP_BP)
+    app.blueprint(METADATA_BP)
 
     @app.middleware('request')
     async def handle_options(request):  # pylint: disable=unused-variable

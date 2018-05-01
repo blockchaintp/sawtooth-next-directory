@@ -20,6 +20,7 @@ from rbac_addressing.addresser import AddressSpace
 
 
 TABLE_NAMES = {
+    AddressSpace.METADATA: 'metadata',
     AddressSpace.USER: 'users',
     AddressSpace.PROPOSALS: 'proposals',
     AddressSpace.SYSADMIN_ATTRIBUTES: 'roles',
@@ -37,6 +38,7 @@ TABLE_NAMES = {
 }
 
 FILTER_KEYS = {
+    AddressSpace.METADATA: ['key'],
     AddressSpace.USER: ['user_id'],
     AddressSpace.PROPOSALS: ['proposal_id'],
     AddressSpace.SYSADMIN_ATTRIBUTES: ['role_id'],
